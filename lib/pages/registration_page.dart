@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/Donmain/Controller/AuthController.dart';
 import 'package:flutter_login_ui/Donmain/Models/User.dart';
@@ -231,13 +232,31 @@ class _RegistrationPageState extends State<RegistrationPage>{
                                         duration: Duration(seconds: 2), backgroundColor: Colors.green,
                                       )
                                   );
-
                                 }
                               }
                             },
                           ),
                         ),
                         SizedBox(height: 30.0),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(10,20,10,20),
+                          //child: Text('Don\'t have an account? Create'),
+                          child: Text.rich(
+                              TextSpan(
+                                  children: [
+                                    TextSpan(text: "have an account? "),
+                                    TextSpan(
+                                      text: 'Login',
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = (){
+                                          Get.toNamed('/index');
+                                        },
+                                      style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).accentColor),
+                                    ),
+                                  ]
+                              )
+                          ),
+                        ),
                       ],
                     ),
                   ),

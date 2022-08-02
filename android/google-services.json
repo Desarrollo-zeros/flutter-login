@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "624488382246",
+    "project_id": "new-login-product",
+    "storage_bucket": "new-login-product.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624488382246:android:488b02335ee34c40428be7",
+        "android_client_info": {
+          "package_name": "net.fluttertutorial.flutter_login_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624488382246-t5idpvrt0h222v5srefrqt5uodjcl78g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC2bS7PfFwl1B95BJ2zw2-J9KtGr5bTLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624488382246-t5idpvrt0h222v5srefrqt5uodjcl78g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
