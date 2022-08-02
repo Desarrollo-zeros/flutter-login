@@ -36,6 +36,7 @@ class LoginUiApp extends StatelessWidget {
         '/index' : (context) => SplashScreen(title: _title),
         '/store' : (context) => StorePageState(title: _title,),
         '/newProduct' : (context) => NewProduct(),
+        '/panel' : (context) => NewStoreStateWidget(),
       },
       theme: ThemeData(
         primaryColor: _primaryColor,
@@ -43,7 +44,7 @@ class LoginUiApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey.shade100,
         primarySwatch: Colors.blue,
       ),
-      home: NewStoreStateWidget(),
+      home: SplashScreen(title: _title),
     );
   }
 }

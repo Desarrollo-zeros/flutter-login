@@ -9,11 +9,11 @@ class NewProduct extends StatefulWidget {
   NewProduct();
 
   @override
-  _NewProductState createState() => _NewProductState();
+  NewProductState createState() => NewProductState();
 }
 
-class _NewProductState extends State<NewProduct> {
-  _NewProductState();
+class NewProductState extends State<NewProduct> {
+  NewProductState();
 
   List<Product> _cart =  <Product>[];
 
@@ -26,8 +26,6 @@ class _NewProductState extends State<NewProduct> {
     });
 
   }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

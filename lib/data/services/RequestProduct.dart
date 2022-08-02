@@ -46,7 +46,7 @@ class RequestProduct {
   }
 
   static Future<List<Product>> getAll() async{
-     var  response = await _db.collection('Product').get();
+     var  response = await _db.collection('Product').where( "File", isNotEqualTo: '').get();
      List<Product> products = [];
      for(var doc in response.docs){
        products.add(Product.sendDoc(doc.data()));

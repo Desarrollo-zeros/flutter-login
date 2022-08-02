@@ -61,7 +61,7 @@ class _NewStoreStateWidget extends State<NewStoreStateWidget>
               child:  StorePageState(title: 'Store'),
             ),
             Center(
-              child: CreateProduct()
+              child: CreateProduct(type: false,)
             ),
           ],
         ),

@@ -9,11 +9,11 @@ class Cart extends StatefulWidget {
    final List<Product> _cart;
 
   @override
-  _CartState createState() => _CartState(this._cart);
+  CartState createState() => CartState(this._cart);
 }
 
-class _CartState extends State<Cart> {
-  _CartState( this._cart);
+class CartState extends State<Cart> {
+  CartState( this._cart);
 
   List<Product> _cart;
 

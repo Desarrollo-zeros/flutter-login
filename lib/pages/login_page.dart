@@ -104,17 +104,17 @@ class _LoginPageState extends State<LoginPage>{
                                       .then((_) {
                                     if (authController.users?.isNotEmpty == true) {
                                       //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfilePage()));
-
                                       ScaffoldMessenger.of(context).showSnackBar(
                                           SnackBar(
                                             content:
-                                            Text("Bienvenido....: ${authController.users?.first.name} ",
+                                            Text("Welcome....: ${authController.users?.first.name} ",
                                               textAlign: TextAlign.center,
                                               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                                             ),
                                             duration: Duration(seconds: 2), backgroundColor: Colors.green,
                                           )
                                       );
+                                      Get.toNamed('/panel');
                                     } else {
                                       ScaffoldMessenger.of(context).showSnackBar(
                                           SnackBar(

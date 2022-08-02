@@ -1,17 +1,21 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/data/services/RequestProduct.dart';
+import 'package:flutter_login_ui/pages/splash_product.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CreateProduct extends StatefulWidget {
-  const CreateProduct({Key? key}) : super(key: key);
-
+  const CreateProduct({Key? key, required this.type}) : super(key: key);
+  final bool type;
   @override
-  State<CreateProduct> createState() => _CreateProductState();
+  State<CreateProduct> createState() => _CreateProductState(this.type);
 }
 
 class _CreateProductState extends State<CreateProduct> {
+  bool _type;
+  _CreateProductState(this._type);
   var _image;
   ImagePicker picker = ImagePicker();
   TextEditingController controlId = TextEditingController();
@@ -36,9 +40,9 @@ class _CreateProductState extends State<CreateProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Crear Articulos"),
-      ),
+      appBar: _type ? AppBar(
+        title: const Text("Create Product"),
+      ) : null,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: ListView(
@@ -79,30 +83,30 @@ class _CreateProductState extends State<CreateProduct> {
             TextField(
               controller: controlId,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Ingrese el Codigo'),
+              decoration: const InputDecoration(labelText: 'Product Code'),
             ),
             TextField(
               controller: controlDetailt,
               decoration:
-              const InputDecoration(labelText: 'Ingrese el Detalle'),
+              const InputDecoration(labelText: 'Product Detail'),
             ),
             TextField(
               controller: controlBrand,
-              decoration: const InputDecoration(labelText: 'Ingrese la Marca'),
+              decoration: const InputDecoration(labelText: 'Product Brad'),
             ),
             TextField(
               controller: controlSize,
               decoration: const InputDecoration(
-                  labelText: 'Ingrese la Unidad de Medida'),
+                  labelText: 'Product Size'),
             ),
             TextField(
               controller: controlLength,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
-                  labelText: 'Ingrese la Cantidad en Bodega'),
+                  labelText: 'Product Length'),
             ),
             ElevatedButton(
-                onPressed: () {
+                onPressed: () async{
                   var product = <String, dynamic>{
                     'Id': controlId.text,
                     'Detailt': controlDetailt.text,
@@ -112,8 +116,39 @@ class _CreateProductState extends State<CreateProduct> {
                     'File': ''
                   };
                   RequestProduct.create(product, _image);
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content:
+                        Text("Loading....:  ",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                        ),
+                        duration: Duration(seconds: 2), backgroundColor: Colors.blueAccent,
+                      )
+                  );
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content:
+                        Text("Product Created Successful....:  ",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                        ),
+                        duration: Duration(seconds: 2), backgroundColor: Colors.green,
+                      )
+                  );
+
+                  Duration timeDelay = Duration(milliseconds: 3*1000);
+                  Timer(timeDelay, () => {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => SplashProduct(title: 'Loading',)),
+                      )
+                  });
+
                 },
-                child: const Text("Guardar Articulo"))
+                child: const Text("Save Product"))
           ],
         ),
       ),
