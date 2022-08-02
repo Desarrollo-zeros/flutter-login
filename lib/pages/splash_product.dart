@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/pages/NewStore.dart';
-import 'package:flutter_login_ui/pages/newProduct.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 

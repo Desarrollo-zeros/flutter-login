@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/Donmain/Controller/AuthController.dart';
 import 'package:flutter_login_ui/pages/NewStore.dart';
-import 'package:flutter_login_ui/pages/newProduct.dart';
 import 'package:flutter_login_ui/pages/registration_page.dart';
 import 'package:flutter_login_ui/pages/store.dart';
 import 'package:get/get.dart';
@@ -35,7 +34,6 @@ class LoginUiApp extends StatelessWidget {
         '/Register': (context) => RegistrationPage(),
         '/index' : (context) => SplashScreen(title: _title),
         '/store' : (context) => StorePageState(title: _title,),
-        '/newProduct' : (context) => NewProduct(),
         '/panel' : (context) => NewStoreStateWidget(),
       },
       theme: ThemeData(
